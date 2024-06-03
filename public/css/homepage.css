@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.interface {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  background-color: #00154f;
+}
+
+.top-header {
+  background-color: #00154f;
+  padding: 20px 4%;
+}
+
+.top-header .logotipo img {
+  max-width: 240px;
+}
+
+.top-header>.interface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-header nav ul li a {
+  color: #f4af1b;
+  padding: 20px 40px;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  transition: .2s;
+}
+
+.bottom-header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.bottom-header nav ul li a:hover {
+  background-color: #f4af1b;
+  color: #2b65d9;
+  box-shadow: inset 0 0 8px #3b3b3b;
+}
+
+.drop-hover {
+  position: relative;
+}
+
+.drop-hover .drop {
+  position: absolute;
+  background-color: #2b65d9;
+  width: 100%;
+  height: 0;
+  overflow: auto;
+  transition: .3s;
+}
+
+::-webkit-scrollbar {
+  background-color: #f4af1b;
+  width: 8px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00154f;
+  border-radius: 8px;
+}
+
+.drop-hover .drop a {
+  padding: 20px;
+}
+
+.drop-hover:hover .drop {
+  height: 205px;
+}
+
+.bottom-header {
+  border-top: 0.1px solid #f2bc94;
+  border-bottom: 0.1px solid #f2bc94;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+body {
+  background-color: #ffe4d1;
+}
+
+.texto_test {
+  text-align: justify;
+  /* width: 1500px; */
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.titulo_test {
+  text-align: center;
+  color: #000000;
+}
+
+.botao a {
+  text-decoration: none;
+  color: #00154f;
+  font-weight: 600;
+}
+
+.botoes {
+  display: flex;
+  width: 500px;
+  margin-left: 45px;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.botao {
+  border-radius: 10px;
+  border: 2px solid #00154f;
+  padding: 10px;
+  display: inline;
+  background-color: #f4af1b;
+  color: #00154f;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+
+/* .botao:hover {
+  color: #f4af1b;
+  background-color: #00154f;
+  border: 2px solid #f4af1b;
+} */
+
+/*  */
+
+.mobile-menu-icon {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-link {
+  display:block;
+  align-items: center;
+  text-decoration: none;
+  margin: 5px;
+  font-size: 1.15rem;
+  color: #f4af1b;
+  font-weight: 400;
+}
+
+.mobile-menu div ul li a:hover {
+  background-color: #f4af1b;
+  color: #2b65d9;
+  box-shadow: inset 0 0 8px #3b3b3b;
+}
+
+/* .login-button button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #0187a7;
+}
+
+.login-button button a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+} */
+
+.mobile-menu-icon {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 730px) {
+  .interface {
+    padding: 1.5rem 4rem;
+  }
+
+  .nav-item {
+    display: none;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
+.mobile-menu-icon button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.mobile-menu .nav-item {
+  display: block;
+  padding-top: 1.2rem;
+}
+
+.mobile-menu .login-button {
+  display: block;
+  padding: 1rem 2rem;
+}
+
+.mobile-menu .login-button button {
+  width: 100%;
+}
+
+.open {
+  display: block;
+}

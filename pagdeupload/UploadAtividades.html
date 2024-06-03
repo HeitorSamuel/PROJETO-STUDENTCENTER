@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UploadAtividades</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/UploadAtividades.css">
+  <script type="text/javascript" src="/js/UploadAtividades.js"></script>
+</head>
+
+<body>
+  <!-- <button type="button" class="botao" onclick="irprahome()"><i class="bi bi-arrow-left-circle-fill"
+      id="teste"></i></button> -->
+  <div class="container">
+    <button type="button" class="botao" onclick="irprahome()"><i class="bi bi-arrow-left-circle-fill"
+        id="teste"></i></button>
+    <h1 class="nome">
+      <img id="imagem" src="/img/STUDENTcenterUPLOAD.png" alt="Logo do Studentcenter">UPLOAD DAS ATIVIDADES
+    </h1>
+  </div>
+  <br><br><br><br>
+  <h2 class="textoseg">ESCOLHA QUAL MATÉRIA VOCÊ QUER ENVIAR A ATIVIDADE</h2>
+  <!-- <br><br><br><br> -->
+
+  <!-- <ul id="cont_matematica">
+    <li>
+      <label for="mat">Matemática</label>
+      <!-- <input id="sub1" type=" checkbox">
+      <ul>
+        <li><input type="file"></li>
+        <li><button class="botaoEnviar">Enviar</button></li>
+      </ul>
+    </li>
+  </ul> -->
+
+  <!-- <ul id="nav">
+    <li>
+      <label for="sub1">Matemática</label>
+      <input id="sub1" type="checkbox">
+      <ul>
+        <li>
+          <input type="file">
+        </li>
+        <li>
+          <button>Enviar</button>
+          <!-- amanha q vai ser o xp? de noite eu estudo, vou tentar validar agr-->
+  <!-- r: quarta -->
+  <!-- to tentando fazer essa merda aqui, tá fogo -->
+  <!-- </li>
+      </ul>
+    </li>
+  </ul>
+ -->
+
+
+  <div class="container1">
+    <div class="cont_matematica" onclick="toggleDropdownmat(this)">
+      <p class="mat">Matemática</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_matematica">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_portugues" onclick="toggleDropdownpor(this)">
+      <p class="port">Português</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_portugues">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_biologia" onclick="toggleDropdownbio(this)">
+      <p class="bio">Biologia</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_biologia">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_historia" onclick="toggleDropdownhist(this)">
+      <p class="hist">História</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_historia">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_quimica" onclick="toggleDropdownquim(this)">
+      <p class="quim">Química</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_quimica">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_fisica" onclick="toggleDropdownfis(this)">
+      <p class="fis">Física</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_fisica">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_geografia" onclick="toggleDropdowngeo(this)">
+      <p class="geo">Geografia</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_geografia">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_ingles" onclick="toggleDropdowning(this)">
+      <p class="ing">Inglês</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_ingles">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_educacaoF" onclick="toggleDropdownedfis(this)">
+      <p class="edu">Educação Física</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_edfisica">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_filosofia" onclick="toggleDropdownfilo(this)">
+      <p class="fil">Filosofia</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_filosofia">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_sociologia" onclick="toggleDropdownsocio(this)">
+      <p class="soc">Sociologia</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_sociologia">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+    <div class="cont_artes" onclick="toggleDropdownart(this)">
+      <p class="art">Artes</p>
+    </div>
+    <div class="dropdown-content" id="dropdown_artes">
+      <input class="arq" type="file">
+      <button class="botaoE">Enviar</button>
+    </div>
+
+  </div>

@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: center;
+  align-items: center;
+  background-color: #00154f;
+  padding: 10px;
+  gap: 20px;
+}
+
+.botao {
+  border: none;
+  background-color: #00154f;
+  color: orange;
+  cursor: pointer;
+}
+
+#teste {
+  font-size: xx-large;
+  text-align: start;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffe4d1;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  border: 5px solid black;
+  padding: 10px;
+  margin: auto;
+}
+
+.nome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: orange;
+  /* width: 1400px; */
+}
+
+th {
+  background-color: #007EA7;
+  color: white;
+  border: 5px solid black;
+  padding: 10px;
+}
+
+td {
+  background-color: white;
+  padding: 10px;
+  border: 5px solid black;
+}
+
+#DivformDatas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 25%; */
+  margin-top: 150px;
+  font: 14px Arial;
+}
+
+#Divtable {
+  font: 16px Arial;
+}
+
+#formulario {
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  color: #f4af1b;
+  background-color: #00154f;
+  padding: 10px;
+  border: 3px solid black;
+}
+
+input {
+  width: 200px;
+}
+
+.salvardados {
+  background-color: #f4af1b;
+}
+
+#imagem {
+  width: 200px;
+  height: 200px;
+}
