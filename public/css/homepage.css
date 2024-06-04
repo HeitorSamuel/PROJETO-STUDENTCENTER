@@ -104,6 +104,9 @@ body {
   /* width: 1500px; */
   margin-left: 50px;
   margin-right: 50px;
+  font-size:x-large;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .titulo_test {

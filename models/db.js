@@ -123,10 +123,24 @@ sequelizeInformes.authenticate()
     console.error("ERRO: Conexão com o banco de dados 'informes' não realizada com sucesso!", err);
 });
 
+const sequelizecadprof = new Sequelize('cadastroprof', 'root', 'nossa321', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
+
+sequelizecadprof.authenticate()
+.then(() => {
+    console.log("Conexão com o banco de dados 'informes' realizada com sucesso!");
+})
+.catch((err) => {
+    console.error("ERRO: Conexão com o banco de dados 'informes' não realizada com sucesso!", err);
+});
+
 // Exportar cada conexão individualmente
 module.exports = {
     sequelize,
     sequelizeDatasEntregas,
     sequelizePrazoProvas,
-    sequelizeInformes
+    sequelizeInformes,
+    sequelizecadprof
 };

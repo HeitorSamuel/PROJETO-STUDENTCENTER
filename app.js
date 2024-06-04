@@ -1,10 +1,3 @@
-// const express = require('express');
-// const path = require('path');
-// const http = require('http');
-// const app = express();
-// // const User = require('./models/User'); // Importe o modelo User corretamente
-// // const sequelize = require('./models/db'); // Importe o sequelize do arquivo db.js
-// const bodyParser = require("body-parser");
 const express = require('express');
 const path = require('path');
 const http = require('http');
@@ -12,7 +5,8 @@ const app = express();
 const DatasEntrega = require('./models/DatasEnt');
 const DadosPrazoProvas = require('./models/PrazoProv');
 const DadosInformes = require('./models/informs');
-const { sequelize, sequelizeDatasEntregas, sequelizePrazoProvas, sequelizeInformes } = require('./models/db');
+const Cadprof = require("./models/prof.js");
+const { sequelize, sequelizeDatasEntregas, sequelizePrazoProvas, sequelizeInformes, sequelizecadprof } = require('./models/db');
 const User = require('./models/User');
 // const sequelizeDatasEntregas = require('./models/db');
 // const sequelizePrazoProvas = require('./models/db');
@@ -70,43 +64,101 @@ app.get("/pagdecalendariogeral/calendarioGeral2.html", (req, res) => {
     res.sendFile(__dirname + "/pagdecalendariogeral/calendarioGeral2.html");
 });
 
-app.post("/processar", (req, res) => {
-    User.create({
-        matricula: req.body.matricula,
-        nome: req.body.nome,
-        email: req.body.email
-    }).then(() => {
-        res.redirect("/pagdehome/homepage.html");
-    }).catch((erro1) => {
-        res.send("Erro: Dados não foram cadastrados com sucesso! " + erro1);
-    });
-});
+// app.post("/processar", (req, res) => {
+//     User.create({
+//         matricula: req.body.matricula,
+//         nome: req.body.nome,
+//         email: req.body.email
+//     }).then(() => {
+//         res.redirect("/pagdehome/homepage.html");
+//     }).catch((erro1) => {
+//         res.send("Erro: Dados não foram cadastrados com sucesso! " + erro1);
+//     });
+// });
 
-app.post("/cadastrar", async (req, res) => {
-    console.log(req.body);
+// app.post("/cadastrar", async (req, res) => {
+//     console.log(req.body);
 
-    await User.create(req.body)
-    .then(() => {
-        return res.json({
+//     await User.create(req.body)
+//     .then(() => {
+//         return res.json({
+//             erro: false,
+//             mensagem: "Usuário cadastrado com sucesso!"
+//         });
+//     }).catch((err) => {
+//         console.error("Erro ao cadastrar usuário: ", err); // Log do erro no console
+//         return res.status(400).json({
+//             erro: true,
+//             mensagem: "ERRO: Usuário não cadastrado com sucesso!"
+//         });
+//     });
+// });
+
+// sequelize.sync({ force: false })
+//     .then(() => {
+//         console.log("Modelos sincronizados com o banco de dados");
+//     })
+//     .catch(err => {
+//         console.error("Erro ao sincronizar modelos com o banco de dados:", err);
+// });
+
+// Aluno registration route with validation
+app.post("/cadastrar-aluno", async (req, res) => {
+    try {
+        // Validate input data (you can add more validations)
+        if (!req.body.matricula || !req.body.nome || !req.body.email || !req.body.salapc) {
+            throw new Error('All fields are required.');
+        }
+
+        // Create a new student record
+        const newUser = await User.create(req.body);
+
+        res.json({
             erro: false,
             mensagem: "Usuário cadastrado com sucesso!"
         });
-    }).catch((err) => {
-        console.error("Erro ao cadastrar usuário: ", err); // Log do erro no console
-        return res.status(400).json({
+    } catch (error) {
+        console.error("Erro ao cadastrar usuário: ", error);
+        res.status(400).json({
             erro: true,
             mensagem: "ERRO: Usuário não cadastrado com sucesso!"
         });
-    });
+    }
 });
 
+// Professor registration
+app.post("/cadastrar-professor", async (req, res) => {
+    try {
+        // Validate input data (you can add more validations)
+        if (!req.body.nomeProfessorCadastro || !req.body.senhaProfessorCadastro) {
+            throw new Error('Nome e senha são obrigatórios.');
+        }
+
+        // Create a new professor record
+        const newProfessor = await CadProf.create(req.body);
+
+        res.json({
+            erro: false,
+            mensagem: "Professor cadastrado com sucesso!"
+        });
+    } catch (error) {
+        console.error("Erro ao cadastrar professor: ", error);
+        res.status(400).json({
+            erro: true,
+            mensagem: "ERRO: Professor não cadastrado com sucesso!"
+        });
+    }
+});
+
+// Sync models with the database
 sequelize.sync({ force: false })
     .then(() => {
-        console.log("Modelos sincronizados com o banco de dados");
+        console.log("Modelos sincronizados com o banco de dados cadastroprof");
     })
     .catch(err => {
-        console.error("Erro ao sincronizar modelos com o banco de dados:", err);
-});
+        console.error("Erro ao sincronizar modelos com o banco de dados cadastroprof:", err);
+    });
+
 
 app.get("/datasentregas", async (req, res) => {
         try {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -51,6 +51,159 @@
         </div>
         <div class="btn">
           <button type="button" class="enviar1" onclick="desmudar()">V O L T A R</button>
+          <button type="submit" class="enviar" onclick="matriculasValidate(), nameValidate(), emailValidate()">C A D A S T R A R</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  <div class="alinhamento">
+    <div class="c_img">
+      <img class=img src="/img/STUDENTcenter (copy).png" alt="cara estudando">
+    </div>
+    <div class="c_forms">
+
+
+      <div id="escolha">
+        <h1 style="color:orange;text-align: center;margin-bottom: 50px;">Escolha uma das opções abaixo, para prossguir com o seu login:</h1>
+        <div class="btn">
+          <button type="button" class="enviar" onclick="mudarparaestudante()">Estudante</button>
+          <button type="button" class="enviar1" onclick="mudarparaprofessor()">Professor</button>
+        </div>
+      </div>
+      
+      
+      
+      <form id="cadastroP" method="post">
+        
+        <h1 class="areas"><i onclick="voltarpratela(1)" id="voltarpratela" class="bi bi-arrow-left-circle-fill"></i>SIGN- UP</h1><br><br><br>
+        <label for="nomeProfessorCadastro">NOME</label>
+        <input oninput="nomePSvalidate()" type="text" id="nomeProfessorCadastro" name="nomeProfessorCadastro" required>
+        <span id="span5"></span>
+        <br>
+        <hr>
+        <br>
+        <label for="senhaProfessorCadastro">SENHA</label>
+        <input oninput="senhaPSvalidate()" type="password" id="senhaProfessorCadastro" name="senhaProfessorCadastro" required>
+        <span id="span6"></span><br>
+        <hr><br>
+        <label for="confirmarSenha">CONFIRMAR SENHA</label>
+        <input id="confirmarSenha" oninput="confirmarSenhaValidate()" type="password" required>
+        <span id="span7"></span>
+        <br><hr><br>
+        <div class="btn">
+          <button type="button" class="enviar1" onclick="loginProfessor()">V O L T A R</button>
+          <button type="button" class="enviar" onclick="matriculalValidate()">C A D A S T R A R</button>
+        </div>
+      </form>
+
+
+      
+      <form id="loginP" method="post">
+        <h1 class="areas">LOGIN</h1><br><br><br>
+        <label for="nomeProfessorLogin">NOME</label>
+        <input oninput="nomePLvalidate()" type="text" id="nomeProfessorLogin" name="nomeProfessorLogin" required>
+        <span id="span8"></span><br>
+        <hr>
+        <br>
+        <label for="senhaProfessorLogin">SENHA</label>
+        <input oninput="senhaPLvalidate()" type="password" id="senhaProfessorLogin" name="senhaProfessorLogin" required>
+        <span id="span9"></span>
+        <br>
+        <hr><br>
+        <div class="btn">
+          <button type="button" class="enviar1" onclick="cadastroProfessor()">C A D A S T R A R</button>
+          <button type="button" class="enviar" onclick="matriculalValidate()">L O G A R</button>
+        </div>
+      </form>
+
+      
+  
+      <form id="login" method="POST">
+        <h1 class="areas">LOGIN</h1>
+        <label for="matriculal">Nº DA MATRÍCULA</label>
+        <input oninput="matriculalValidate()" type="number" id="matriculal" name="matriculal" required>
+        <span id="span1"></span>
+        <br>
+        <hr>
+        <label for="salapl">SALA:</label>
+        <select id="salapl" name="salapl" required>
+          <option value="">sala indefinida</option>
+          <option value="s1">Sala 1 - vermelha</option>
+          <option value="s2">Sala 2 - azul</option>
+          <option value="s3">Sala 3 - verde neon</option>
+          <option value="s4">Sala 4 - preto</option>
+          <option value="s5">Sala 5 - laranja</option>
+          <option value="s6">Saab 6 - vinho</option>
+          <option value="s7">Sala 7 - verde camuflado</option>
+          <option value="s8">Sala 8 - ciano</option>
+          <option value="s9">Sala 9 - amarela</option>
+          <option value="s10">Sala 10 - cinza</option>
+          <option value="s11">Sala 11 - roxo</option>
+          <option value="s12">Sala 12 - rosa</option>
+        </select>
+        <hr><br>
+        <div class="btn">
+          <button type="button" class="enviar1" onclick="cadastroAluno()">C A D A S T R A R</button>
+          <button type="button" class="enviar" onclick="matriculalValidate()">L O G A R</button>
+        </div>
+      </form>
+
+      
+      <form id="cadastro" method="POST">
+        <h1 class="areas">SIGN- UP</h1>
+        <div>
+          <label for="matriculas">Nº DA MATRÍCULA</label>
+          <input oninput="matriculasValidate()" type="number" id="matriculas" name="matriculas" required>
+          <span id="span2"></span>
+          <br>
+          <hr><br>
+          <label for="nome">USERNAME</label>
+          <input type="text" id="nome" name="nome" oninput="nameValidate()" required>
+          <span id="span3"></span>
+          <br>
+          <hr><br>
+          <label for="email">GMAIL</label>
+          <input type="email" id="email" name="email" oninput="emailValidate()" required>
+          <span id="span4"></span>
+          <br>
+          <hr>
+          <label for="salapc">SALA:</label>
+          <select id="salapc" name="salapc">
+            <option value="">sala indefinida</option>
+            <option value="s1">Sala 1 - vermelha</option>
+            <option value="s2">Sala 2 - azul</option>
+            <option value="s3">Sala 3 - verde neon</option>
+            <option value="s4">Sala 4 - preto</option>
+            <option value="s5">Sala 5 - laranja</option>
+            <option value="s6">Saab 6 - vinho</option>
+            <option value="s7">Sala 7 - verde camuflado</option>
+            <option value="s8">Sala 8 - ciano</option>
+            <option value="s9">Sala 9 - amarela</option>
+            <option value="s10">Sala 10 - cinza</option>
+            <option value="s11">Sala 11 - roxo</option>
+            <option value="s12">Sala 12 - rosa</option>
+          </select>
+          <br>
+          <hr><br>
+        </div>
+        <div class="btn">
+          <button type="button" class="enviar1" onclick="loginAluno()">V O L T A R</button>
           <button type="submit" class="enviar" onclick="matriculasValidate(), nameValidate(), emailValidate()">C A D A S T R A R</button>
         </div>
       </form>
