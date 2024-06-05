@@ -28,14 +28,14 @@
 const { DataTypes } = require('sequelize');
 const { sequelizecadprof } = require('./db');
 
-const CadProf = sequelizecadprof.define('table_prof', {
+const CadProf = sequelizecadprof.define('table_profs', {
     nomeProfessorCadastro: {
         type: DataTypes.STRING,
         allowNull: false
   
     },
     senhaProfessorCadastro: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         primaryKey: true
     }

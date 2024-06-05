@@ -9,20 +9,88 @@
 .areas{
   color:rgb(244,175,27);
   text-align: center;
+  display:inline;
 }
 .areas > span::hover{
   color:black;
 }
+
+/*======================== partes relacionadas a transacao ===========================*/
 .c_forms_trocaR{
-  transform: translateX(-450px);
-  transition: 200ms;
+  transform: translateX(-1760px);
+  transition: 10ms;
 }
 .c_forms_trocaL{
   transform: translateX(0px);
-  transition: 200ms;
+  transition: 10ms;
 }
 
+.mudancaparaestudante{
+  transform: translateX(-1320px);
+  transition: 10ms;
+}
+.forms_estudante{
+  display: flex;
+  flex-direction: row;
+  background-color: #00154f;
+  width: 400px;
+  min-width: 200px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 40px rgb(244,175,27);
+  margin-right: 200px;
+  margin-bottom: 50px;
+  gap:30px;
+  transition: 10ms;
+  height: 270px;
+  overflow:hidden;
+}
+/* =============================================================================== */
+.c_forms_cadastrop{
+  transform: translateX(-448px);
+  transition: 10ms;
+}
+
+.mudancaparaprofessor{
+  transform: translateX(-881px);
+  transition: 10ms;
+}
+.forms_professor{
+  display: flex;
+  flex-direction: row;
+  background-color: #00154f;
+  width: 400px;
+  min-width: 200px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 40px rgb(244,175,27);
+  margin-right: 200px;
+  margin-bottom: 50px;
+  gap:30px;
+  transition: 10ms;
+  height: 325px;
+  overflow:hidden;
+}
+/*====================================== final =======================================*/
 .c_forms_trocar {
+  background-color: #00154f;
+  width: 399px;
+  height: 470px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 40px rgb(244,175,27);
+  margin-right: 150px;
+  gap:30px;
+  transition: 10ms;
+  overflow:hidden;
+}
+.c_forms_trocar_professor {
   background-color: #00154f;
   width: 399px;
   height: 420px;
@@ -35,7 +103,7 @@
   box-shadow: 0px 0px 40px rgb(244,175,27);
   margin-right: 100px;
   gap:30px;
-  transition: 200ms;
+  transition: 10ms;
   overflow:hidden;
 }
 .c_forms {
@@ -52,6 +120,7 @@
   margin-bottom: 50px;
   gap:30px;
   transition: 200ms;
+  height: 230px;
   overflow:hidden;
 }
  
@@ -133,4 +202,22 @@ hr {
 
 body {
   background-color: #00154f;
+}
+select{
+  width: 360px;
+  border-color:orange;
+  background-color: rgba(244,175,27,0.5);
+  border-radius: 5px;
+  font-weight: bold;
+}
+option{
+  background-color: rgb(153, 105, 0);
+  border-color:orange;
+  font-weight: bold;
+}
+i{
+  color: rgba(244,175,27,0.5);
+  font-size:xx-large;
+  margin-right:100px; 
+  cursor:pointer;
 }

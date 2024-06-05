@@ -89,7 +89,7 @@
       
       
       
-      <form id="cadastroP" method="post">
+      <form action="/processar1" id="cadastroP" method="POST">
         
         <h1 class="areas"><i onclick="voltarpratela(1)" id="voltarpratela" class="bi bi-arrow-left-circle-fill"></i>SIGN- UP</h1><br><br><br>
         <label for="nomeProfessorCadastro">NOME</label>
@@ -108,7 +108,7 @@
         <br><hr><br>
         <div class="btn">
           <button type="button" class="enviar1" onclick="loginProfessor()">V O L T A R</button>
-          <button type="button" class="enviar" onclick="matriculalValidate()">C A D A S T R A R</button>
+          <button type="submit" class="enviar" onclick="matriculalValidate()">C A D A S T R A R</button>
         </div>
       </form>
 
@@ -134,7 +134,7 @@
 
       
   
-      <form id="login" method="POST">
+      <form action="/login" id="login" method="POST">
         <h1 class="areas">LOGIN</h1>
         <label for="matriculal">Nº DA MATRÍCULA</label>
         <input oninput="matriculalValidate()" type="number" id="matriculal" name="matriculal" required>
@@ -165,7 +165,7 @@
       </form>
 
       
-      <form id="cadastro" method="POST">
+      <form action="/processar" id="cadastro" method="POST">
         <h1 class="areas">SIGN- UP</h1>
         <div>
           <label for="matriculas">Nº DA MATRÍCULA</label>

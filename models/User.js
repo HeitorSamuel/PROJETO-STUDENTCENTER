@@ -51,27 +51,18 @@ const { DataTypes } = require('sequelize');
 const { sequelize } = require('./db');
 
 const User = sequelize.define('alunos', {
-    matricula: {
-        type: DataTypes.STRING,
+    matriculas: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true,
-        validate: {
-            len: [7, 7] // Matrícula deve ter exatamente 7 caracteres
-        }
+        primaryKey: true
     },
     nome: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1, 40] // Nome deve ter entre 1 e 40 caracteres
-        }
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true // Deve ser um email válido
-        }
+        allowNull: false
     },
     salapc: {
         type: DataTypes.STRING,
