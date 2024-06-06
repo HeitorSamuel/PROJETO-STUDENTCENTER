@@ -65,44 +65,6 @@ app.get("/pagdecalendariogeral/calendarioGeral2.html", (req, res) => {
     res.sendFile(__dirname + "/pagdecalendariogeral/calendarioGeral2.html");
 });
 
-// app.post("/processar", (req, res) => {
-//     User.create({
-//         matricula: req.body.matricula,
-//         nome: req.body.nome,
-//         email: req.body.email
-//     }).then(() => {
-//         res.redirect("/pagdehome/homepage.html");
-//     }).catch((erro1) => {
-//         res.send("Erro: Dados não foram cadastrados com sucesso! " + erro1);
-//     });
-// });
-
-// app.post("/cadastrar", async (req, res) => {
-//     console.log(req.body);
-
-//     await User.create(req.body)
-//     .then(() => {
-//         return res.json({
-//             erro: false,
-//             mensagem: "Usuário cadastrado com sucesso!"
-//         });
-//     }).catch((err) => {
-//         console.error("Erro ao cadastrar usuário: ", err); // Log do erro no console
-//         return res.status(400).json({
-//             erro: true,
-//             mensagem: "ERRO: Usuário não cadastrado com sucesso!"
-//         });
-//     });
-// });
-
-// sequelize.sync({ force: false })
-//     .then(() => {
-//         console.log("Modelos sincronizados com o banco de dados");
-//     })
-//     .catch(err => {
-//         console.error("Erro ao sincronizar modelos com o banco de dados:", err);
-// });
-
 app.post("/processar", (req, res) => {
     User.create({
         matriculas: req.body.matriculas,
@@ -141,31 +103,28 @@ sequelize.sync({ force: false })
         console.error("Erro ao sincronizar modelos com o banco de dados 'sistemadecadastro':", err);
 });
 
-app.post('/login', async (req, res) => {
-    const user = await User.findOne({
-        attributtes: ['matriculas', 'nome', 'email', 'salapc'],
-        where: {
-            email: req.body.email
+app.post('/loginAluno', async (req, res) => {
+    const { matriculal, salapl } = req.body;
+
+    try {
+        const aluno = await User.findOne({
+            where: {
+                matriculas: matriculal,
+                salapc: salapl
+            }
+        });
+
+        if (aluno) {
+            res.redirect('/pagdehome/homepage.html');
+        } else {
+            res.status(401).json({ message: "Matrícula ou sala inválida" });
         }
-    
-    })
-    if (user === null){
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: usuário ou senha incorreta!"
-        })
+    } catch (err) {
+        console.error("Erro ao tentar logar aluno:", err);
+        res.status(500).json({ message: "Erro ao tentar logar aluno" });
     }
-    if(!(await bcrypt.compare(req.body.matriculas, user.matriculas))){
-        return res.status(400).json({
-            erro: true,
-            mensagem: 'Erro: Usuário pu a senha incorreta!'
-        })
-    }
-    return res.json({
-        erro: false,
-        mensagem: "Login realizado com sucesso!"
-    })
 });
+
 app.post("/processar1", (req, res) => {
         Cadprof.create({
             nomeProfessorCadastro: req.body.nomeProfessorCadastro,
@@ -199,9 +158,30 @@ sequelizecadprof.sync({ force: false })
     })
     .catch(err => {
         console.error("Erro ao sincronizar modelos com o banco de dados 'cadastroprof':", err);
-    });
+});
 
-
+app.post('/loginProfessor', async (req, res) => {
+        const { nomeProfessorLogin, senhaProfessorLogin } = req.body;
+    
+        try {
+            const professor = await Cadprof.findOne({
+                where: {
+                    nomeProfessorCadastro: nomeProfessorLogin,
+                    senhaProfessorCadastro: senhaProfessorLogin
+                }
+            });
+    
+            if (professor) {
+                res.redirect('/pagdehome/homepage.html');
+            } else {
+                res.status(401).json({ message: "Nome ou senha inválidos" });
+            }
+        } catch (err) {
+            console.error("Erro ao tentar logar professor:", err);
+            res.status(500).json({ message: "Erro ao tentar logar professor" });
+        }
+});
+    
 
 app.get("/datasentregas", async (req, res) => {
         try {
@@ -324,67 +304,6 @@ sequelizePrazoProvas.sync({ force: false })
     .catch(err => {
         console.error("Erro ao sincronizar modelos com o banco de dados 'prazoprovas':", err);
 });
-
-// <--------------------------------------------------------------------------->
-
-// app.get("/Informes", async (req, res) => {
-//     try {
-//         const dados3 = await DadosInformes.findAll();
-//         res.json(dados3);
-//     } catch (err) {
-//         res.status(500).json({ error: "Erro ao buscar dados" });
-//     }
-// });
-
-// app.post("/Informes", async (req, res) => {
-//     try {
-//         const { txtprof, txtsobre } = req.body;
-//         const novoDado3 = await DadosInformes.create({ txtprof, txtsobre });
-//         res.json(novoDado3);
-//     } catch (err) {
-//         res.status(400).json({ error: "Erro ao adicionar dados" });
-//     }
-// });
-
-// app.put("/Informes/:txtsobre", async (req, res) => {
-//     try {
-//         const { txtsobre } = req.params;
-//         const { txtprof } = req.body;
-
-//         const dado3 = await DadosInformes.findByPk(txtsobre);
-//         if (dado3) {
-//             dado3.txtprof = txtprof;
-//             await dado3.save();
-//             res.json({ message: "Registro atualizado com sucesso." });
-//         } else {
-//             res.status(404).json({ error: "Registro não encontrado." });
-//         }
-//     } catch (err) {
-//         res.status(400).json({ error: "Erro ao atualizar dados." });
-//     }
-// });
-
-// app.delete("/Informes/:txtsobre", async (req, res) => {
-//     try {
-//         const { txtsobre } = req.params;
-//         const resultads = await DadosInformes.destroy({ where: { txtsobre } });
-//         if (resultads) {
-//             res.json({ message: "Registro deletado com sucesso." });
-//         } else {
-//             res.status(404).json({ error: "Registro não encontrado." });
-//         }
-//     } catch (err) {
-//         res.status(400).json({ error: "Erro ao deletar dados." });
-//     }
-// });
-
-// sequelizeInformes.sync({ force: false })
-// .then(() => {
-//     console.log("Modelos sincronizados com o banco de dados 'informes'");
-// })
-// .catch(err => {
-//     console.error("Erro ao sincronizar modelos com o banco de dados 'informes'", err);
-// });                                   
 
 app.get("/Informes", async (req, res) => {
     try {
