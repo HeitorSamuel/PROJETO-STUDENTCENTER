@@ -1,26 +1,26 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class PrazoProv extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  PrazoProv.init({
-    txtdata1: DataTypes.STRING,
-    txtassunto1: DataTypes.STRING,
-    txttaxa1: DataTypes.STRING,
-    txtacesso: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'PrazoProv',
-  });
-  return PrazoProv;
-};
+const { DataTypes } = require('sequelize');
+const { sequelizePrazoProvas } = require('./db');
+
+const DadosPrazoProvas = sequelizePrazoProvas.define('prazo_provas', {
+        txtdata1: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        txtassunto1: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            primaryKey: true
+        },
+        txttaxa1: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        txtacesso: {
+          type: DataTypes.STRING,
+          allowNull: false
+      }
+    }, {
+        timestamps: false
+    });
+    
+module.exports = DadosPrazoProvas;

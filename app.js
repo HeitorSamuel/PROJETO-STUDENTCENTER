@@ -8,8 +8,6 @@ const DadosInformes = require('./models/informs');
 const Cadprof = require("./models/prof.js");
 const { sequelize, sequelizeDatasEntregas, sequelizePrazoProvas, sequelizeInformes, sequelizecadprof } = require('./models/db');
 const User = require('./models/User');
-// const sequelizeDatasEntregas = require('./models/db');
-// const sequelizePrazoProvas = require('./models/db');
 const bodyParser = require("body-parser");
 const { where } = require('sequelize');
 
@@ -18,15 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
-
-
-// app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-
-// // Servir arquivos estáticos do diretório "public"
-// app.use(express.static(path.join(__dirname, "public")));
-
 
 // Rotas para servir arquivos HTML específicos
 app.get("/", (req, res) => {
